@@ -1,0 +1,415 @@
+//couleurs de http://www.kitchensinkstudios.com/
+
+@texteFondFonce: #E9633B;
+@texteFondFonceSpecial: #63AA9C;
+@texteFondPale: #221E1D;
+@fondPale: #ECEAE0;
+@fondFonce: #221E1D;
+
+* {
+  -webkit-transition: all 200ms; /* Safari */
+  transition: all 200ms;
+
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px/22px sans-serif;
+  color: @fondPale;
+
+  //.radial-gradient(@fondPale, @fondFonce);
+  background: @fondFonce;
+}
+
+.message {
+  .avertissement, .erreur, .succes
+  {
+    padding:.8em;
+    margin: 1em;
+    border: none;
+  }
+
+  .avertissement a, .erreur a, .succes a {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .avertissement {
+    background:#FFF6BF;
+    color:#514721;
+    border-left: 3px solid #FFD324;
+
+    a {
+      color:#514721;
+    }
+  }
+  .erreur {
+    background:#FBE3E4;
+    color:#8a1f11;
+    border-left: 3px solid #FBC2C4;
+
+    a {
+      color:#8a1f11;
+    }
+  }
+  .information {
+    a {
+
+    }
+  }
+  .succes {
+    background:#E6EFC2;
+    color:#264409;
+    border-left: 3px solid #C6D880;
+
+    a {
+      color:#264409;
+    }
+  }
+}
+
+button {
+  border: 1px solid @texteFondFonce;
+  background: @fondFonce;
+  color: @texteFondFonce;
+  padding: 5px 10px;
+}
+
+button:hover {
+  background: lighten(@fondFonce, 10%);
+}
+
+strong {
+  font-weight: bold;
+}
+
+.align-centre {
+  text-align: center;
+}
+
+.align-gauche {
+  text-align: left;
+}
+
+.align-droite {
+  text-align: right;
+}
+
+.connexion {
+  .connexion-container button {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
+    width: 90%;
+    max-width: 500px;
+    height: 100px;
+
+    font-size: 1.5em;
+  }
+}
+
+.gestion {
+  .barre-haut {
+    .pays {
+      font-size: 18px;
+      font-weight: bold;
+      color: @texteFondFonce;
+    }
+  }
+
+  .main-container {
+    margin: 30px auto;
+    padding: 30px;
+    background: @fondPale;
+    color: @texteFondPale;
+    border: 2px dashed @fondFonce;
+
+    .message {
+      .avertissement, .erreur, .succes {
+        margin: 0 0 1em 0;
+      }
+    }
+
+    .logo {
+      position:relative;
+      margin: -32px auto 0 auto;
+      padding: 15px 15px 50px 15px;
+      width: 250px;
+      background: @fondFonce;
+      color: @fondPale;
+      text-align: center;
+
+      .nom {
+        color: @texteFondFonce;
+        font: normal bold 23px/30px Arial;
+        text-transform: uppercase;
+      }
+
+      .nom:before, .nom:after {
+        content: ' - ';
+      }
+
+      .cours {
+        width: 95%;
+        padding: 0;
+        border: none;
+        border-top: medium double @texteFondFonceSpecial;
+        color: @texteFondFonceSpecial;
+      }
+
+      .effet-bandeau {
+        position: absolute;
+        bottom: 0;
+        margin-left: -16px;
+        width: 0;
+        height: 45px;
+        border-left: solid 125px transparent;
+        border-right: solid 125px transparent;
+        border-bottom: solid 30px @fondPale;
+      }
+    }
+
+    hr {
+      width: 95%;
+      padding: 0;
+      border: none;
+      border-top: medium double @texteFondFonceSpecial;
+      color: @texteFondFonceSpecial;
+      text-align: center;
+    }
+
+    button {
+      border: 1px solid @fondFonce;
+      background: @fondFonce;
+      color: @texteFondFonce;
+    }
+
+    button:hover {
+      background: lighten(@fondPale, 10%);
+      color: @fondFonce;
+    }
+
+    section.infos-pays {
+      margin: 20px 0 50px 0;
+
+      .pays-titre {
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font: normal bold 1.8em Helvetica, Arial, sans-serif;
+        text-align: center;
+        color: @texteFondFonce;
+      }
+
+      hr {
+        width: 100%;
+      }
+
+      table {
+        border-collapse: collapse;
+        font-size: 0.8em;
+        line-height: 1.1em;
+      }
+
+      /* Zebra striping */
+      tr:nth-of-type(even) {
+        background: lighten(@texteFondFonceSpecial, 30%);
+      }
+
+      th {
+        background: @fondFonce;
+        color: @fondPale;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      td {
+        text-align: left;
+      }
+
+      td.surbrillance {
+        background: @texteFondFonce;
+        color: @fondPale;
+      }
+
+      th.cache,
+      td.cache {
+        background: #000;
+        color: #000;
+      }
+
+      td, th {
+        padding: 6px;
+        border: 1px solid @fondPale;
+        vertical-align: middle;
+      }
+
+      td {
+        line-height: 100%;
+      }
+      div.editable {
+        border: 1px dashed @texteFondFonceSpecial;
+        padding: 5px 10px;
+        line-height: 100%;
+        display: inline-block;
+      }
+      div.editable:hover {
+        background: #fafafa;
+        cursor: pointer;
+      }
+      div.editable:focus {
+        background: #ffffff;
+        border: 1px dashed @texteFondFonce;
+        //box-shadow: 0 1px 5px rgba(0,0,0,0.15) inset;
+      }
+
+      td:first-child {
+        background: @texteFondFonceSpecial;
+        color: @fondFonce;
+        text-align: center;
+      }
+
+      td.pays,
+      th.pays {
+        width:10em;
+      }
+
+      /* Force table to not be like tables anymore */
+      table.responsive {
+        display: block;
+
+        thead, tbody, th, td, tr {
+          display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+          position: absolute;
+          top: -9999px;
+          left: -9999px;
+        }
+
+        tr { border: 1px solid #ccc; }
+
+        td {
+          /* Behave  like a "row" */
+          border: none;
+          border-bottom: 1px solid #eee;
+          position: relative;
+          padding-left: 50%;
+        }
+
+        td:before {
+          /* Now like a table header */
+          position: absolute;
+          /* Top/left values mimic padding */
+          top: 6px;
+          left: 6px;
+          width: 45%;
+          padding-right: 10px;
+          white-space: nowrap;
+        }
+
+        /*
+          Label the data
+        */
+        //    td:nth-of-type(1):before { content: "First Name"; }
+        //    td:nth-of-type(2):before { content: "Last Name"; }
+        //    td:nth-of-type(3):before { content: "Job Title"; }
+        //    td:nth-of-type(4):before { content: "Favorite Color"; }
+        //    td:nth-of-type(5):before { content: "Wars of Trek?"; }
+        //    td:nth-of-type(6):before { content: "Porn Name"; }
+        //    td:nth-of-type(7):before { content: "Date of Birth"; }
+        //    td:nth-of-type(8):before { content: "Dream Vacation City"; }
+        //    td:nth-of-type(9):before { content: "GPA"; }
+        //    td:nth-of-type(10):before { content: "Arbitrary Data"; }
+      }
+
+      section {
+        position: relative;
+        margin: 20px 0 50px 0;
+
+        h1 {
+          text-align: left;
+          font-size: 1.4em;
+          color: @texteFondFonceSpecial;
+        }
+
+        hr {
+          border-top-color: @texteFondFonceSpecial;
+          color: @texteFondFonceSpecial;
+        }
+      }
+
+      button {
+        border: 1px solid @texteFondFonce;
+        color: @texteFondFonce;
+        background: @fondPale;
+        margin: 10px 0;
+        float: right;
+      }
+
+      button:hover {
+        background: darken(@fondPale, 10%);
+      }
+    }
+  }
+
+  .data.fixe {
+    overflow-y:visible;
+    overflow-x:scroll;
+    display: inline-block;
+    max-width: calc(~'100% - 8em');
+  }
+}
+
+.gestion.isadmin {
+  .data.fixe {
+    margin-left:8em;
+    padding-bottom:1px;
+
+    th:first-child, td:first-child {
+      position:absolute;
+      width:10em;
+      left:0;
+      top:auto;
+    }
+  }
+
+  th:first-child {
+    visibility: hidden;
+  }
+}
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
