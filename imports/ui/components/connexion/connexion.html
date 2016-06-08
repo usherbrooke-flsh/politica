@@ -1,0 +1,10 @@
+<div class="connexion">
+    <messages></messages>
+
+    <div class="connexion-container">
+        <button ng-click="connexion.login()">
+            <span ng-show="(connexion.isLogin || connexion.ConnexionService.isLoggedIn())"><i class="glyphicon glyphicon-refresh spinning"></i></span>
+            {{connexion.connectButtonText}}
+        </button>
+    </div>
+</div>

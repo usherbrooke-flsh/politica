@@ -1,0 +1,151 @@
+{
+  "_env": {
+    "MONGO_URL" : "mongodb://xxx:xxxx@troup.mongohq.com:10037/xxx"
+  },
+  "cas": {
+    "baseUrl": "https://cas.usherbrooke.ca",
+    "autoClose": true
+  },
+  "ldap": {
+    "url": "ldaps://ldap.usherbrooke.ca:636",
+    "base": "ou=personnes,dc=usherbrooke,dc=ca",
+    "timeout": 10000,
+    "bindDn": "uid=prtu9002,ou=personnes,dc=usherbrooke,dc=ca",
+    "bindSecret": "NgZvpfv?",
+    "filter": "(&(uid=%uid)(objectClass=inetOrgPerson))",
+    "scope": "one",
+    "nameAttribute": "cn",
+    "mailAttribute": "mail",
+    "forceUsername": true,
+    "allowNotFound": false,
+    "supportedServices": ["cas"],
+    "group": {
+      "base": "ou=groupes,dc=usherbrooke,dc=ca",
+      "filter": "(&(objectClass=groupOfNames)(member=%dn))",
+      "scope": "one",
+      "nameAttribute": "cn",
+      "descAttribute": "description",
+      "prefix": "ldap_",
+      "defaultRole": "membre"
+    }
+  },
+  "public": {
+    "persistent_session": {
+      "default_method": "persistent"
+    },
+    "application" : {
+      "permissions": {
+        "utilisateur": {
+          "nom": false,
+          "fiche": false,
+          "productions_militaires": {
+            "infanterie": true,
+            "force_aérienne": true,
+            "flotte": true,
+            "drones": true,
+            "complexe_nucléaire": true
+          },
+          "donnees_economiques": {
+            "pib_base": false,
+            "inv_education": true,
+            "inv_sante": true,
+            "inv_infrastructure": true,
+            "subvention_industrie": true,
+            "taux_imposition": true,
+            "dette_publique": true,
+            "taux_interets": true
+          },
+          "indicateurs_sociaux": {
+            "regime_politique": false,
+            "population": false,
+            "idh": false,
+            "gini": false,
+            "taux_chomage": false,
+            "perception_corruption": false,
+            "liberte_civile": false,
+            "indice_stabilite": false
+          },
+          "ressources": {
+            "nourriture": {
+              "dotation": false,
+              "consommation": true,
+              "exportation": true,
+              "importation": true
+            },
+            "énergie": {
+              "dotation": false,
+              "consommation": true,
+              "exportation": true,
+              "importation": true
+            },
+            "matériau": {
+              "dotation": false,
+              "consommation": true,
+              "exportation": true,
+              "importation": true
+            }
+          }
+        },
+        "administrateur": {
+          "nom": true,
+          "fiche": true,
+          "productions_militaires": {
+            "infanterie": true,
+            "force_aérienne": true,
+            "flotte": true,
+            "drones": true,
+            "complexe_nucléaire": true
+          },
+          "donnees_economiques": {
+            "pib_base": true,
+            "inv_education": true,
+            "inv_sante": true,
+            "inv_infrastructure": true,
+            "subvention_industrie": true,
+            "taux_imposition": true,
+            "dette_publique": true,
+            "taux_interets": true
+          },
+          "indicateurs_sociaux": {
+            "regime_politique": true,
+            "population": true,
+            "idh": true,
+            "gini": true,
+            "taux_chomage": true,
+            "perception_corruption": true,
+            "liberte_civile": true,
+            "indice_stabilite": true
+          },
+          "ressources": {
+            "nourriture": {
+              "dotation": true,
+              "consommation": true,
+              "exportation": true,
+              "importation": true
+            },
+            "énergie": {
+              "dotation": true,
+              "consommation": true,
+              "exportation": true,
+              "importation": true
+            },
+            "matériau": {
+              "dotation": true,
+              "consommation": true,
+              "exportation": true,
+              "importation": true
+            }
+          }
+        }
+      },
+      "isDev": false,
+      "isDebug": false
+    },
+    "cas": {
+      "loginUrl": "https://cas.usherbrooke.ca/login",
+      "serviceParam": "service",
+      "popupWidth": 810,
+      "popupHeight": 610
+    }
+  }
+}

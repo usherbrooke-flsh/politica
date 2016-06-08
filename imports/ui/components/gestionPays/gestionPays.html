@@ -1,0 +1,48 @@
+<header class="barre-haut">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-xs-6">{{gestionPays.ConnexionService.currentUser().profile.name}}</div>
+            <div class="col-sm-4 hidden-xs align-centre"><span class="pays">{{gestionPays.ConnexionService.currentUser().profile.isAdmin ? 'Administrateur' : gestionPays.nomPays}}</span></div>
+            <div class="col-sm-4 col-xs-6 align-droite"><button ng-click="gestionPays.logout()">Déconnexion</button></div>
+        </div>
+        <div class="row">
+            <div class="hidden-sm hidden-lg hidden-md col-xs-12 align-centre"><span class="pays">{{gestionPays.ConnexionService.currentUser().profile.isAdmin ? 'Administrateur' : gestionPays.nomPays}}</span></div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <section class="main-container">
+        <header>
+            <h1 class="logo">
+                <div class="nom">Politica</div>
+                <div class="cours">GEP 403</div>
+                <div class="description">Simulation politique synthèse</div>
+                <div class="effet-bandeau"></div>
+            </h1>
+        </header>
+
+        <messages></messages>
+
+        <section class="infos-pays">
+            <!-- Il devrait seulement y en avoir 1 par utilisateur -->
+            <div ng-show="!gestionPays.ConnexionService.currentUser().profile.isAdmin">
+                <div ng-repeat="item in gestionPays.paysUtilisateur">
+                    <div class="pays-titre">
+                        <h1>{{item.nom}}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <donnees-economiques pays-utilisateur="gestionPays.paysUtilisateur"></donnees-economiques>
+            <cout-ressources pays-utilisateur="gestionPays.paysUtilisateur"></cout-ressources>
+            <ressources-commerce pays-utilisateur="gestionPays.paysUtilisateur"></ressources-commerce>
+            <productions-militaires pays-utilisateur="gestionPays.paysUtilisateur"></productions-militaires>
+            <couts-entretien pays-utilisateur="gestionPays.paysUtilisateur"></couts-entretien>
+            <indicateurs-sociaux pays-utilisateur="gestionPays.paysUtilisateur"></indicateurs-sociaux>
+        </section>
+
+    </section>
+</div>
+
+<debug></debug>

@@ -1,0 +1,31 @@
+<section class="productions-militaires">
+    <h1>Productions militaires</h1>
+    <hr/>
+    <div>
+        <form class="data fixe">
+            <table>
+                <thead>
+                <tr>
+                    <th class="pays">Pays</th>
+                    <th>Infanterie</th>
+                    <th>Force aérienne</th>
+                    <th>Flotte</th>
+                    <th>Drones</th>
+                    <th>Complexe nucléaire</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in productionsMilitaires.paysUtilisateur">
+                    <td class="pays" fix-height>{{productionsMilitaires.GestionPaysService.afficher_nom(item.value.nom.value)}}</td>
+                    <td><div ng-class="{editable:productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.infanterie')}" ng-attr-contenteditable="{{productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.infanterie')}}" ng-model="item.value.productions_militaires.value.infanterie.value"></div></td>
+                    <td><div ng-class="{editable:productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.force_aérienne')}" ng-attr-contenteditable="{{productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.force_aérienne')}}" ng-model="item.value.productions_militaires.value.force_aerienne.value"></div></td>
+                    <td><div ng-class="{editable:productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.flotte')}" ng-attr-contenteditable="{{productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.flotte')}}" ng-model="item.value.productions_militaires.value.flotte.value"></div></td>
+                    <td><div ng-class="{editable:productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.drones')}" ng-attr-contenteditable="{{productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.drones')}}" ng-model="item.value.productions_militaires.value.drones.value"></div></td>
+                    <td><div ng-class="{editable:productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.complexe_nucléaire')}" ng-attr-contenteditable="{{productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'productions_militaires.complexe_nucléaire')}}" ng-model="item.value.productions_militaires.value.complexe_nucleaire.value"></div></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <button class="sauvegarder" ng-show="productionsMilitaires.ConnexionService.utilisateurPeutEditer({'Pays': '*'}, 'productions_militaires')" ng-click="productionsMilitaires.GestionPaysService.sauvegarder(productionsMilitaires.paysUtilisateur, 'productions_militaires', $event)"><i class="glyphicon glyphicon-refresh spinning"></i>Sauvegarder les données</button>
+</section>

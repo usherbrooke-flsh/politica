@@ -1,0 +1,58 @@
+<section class="ressources-et-commerce-internationnal">
+    <h1>Ressources et commerce internationnal</h1>
+    <hr/>
+    <div>
+        <form class="data fixe">
+            <table>
+                <thead>
+                <tr>
+                    <th class="pays">Pays</th>
+                    <th>Dotation N</th>
+                    <th>Dotation É</th>
+                    <th>Dotation M</th>
+                    <th>Consommation N</th>
+                    <th>Consommation É</th>
+                    <th>Consommation M</th>
+                    <th>Réserve N</th>
+                    <th>Réserve É</th>
+                    <th>Réserve M</th>
+                    <th>Exportation de N</th>
+                    <th>Exportation de É</th>
+                    <th>Exportation de M</th>
+                    <th>Importation de N</th>
+                    <th>Importation de É</th>
+                    <th>Importation de M</th>
+                    <th>Exportations (G$)</th>
+                    <th>Importations (G$)</th>
+                    <th>Solde commercial (G$)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in ressourcesCommerce.paysUtilisateur">
+                    <td class="pays" fix-height>{{ressourcesCommerce.GestionPaysService.afficher_nom(item.value.nom.value)}}</td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.dotation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.dotation')}}" ng-model="item.value.ressources.value.nourriture.value.dotation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.dotation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.dotation')}}" ng-model="item.value.ressources.value.energie.value.dotation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.dotation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.dotation')}}" ng-model="item.value.ressources.value.materiau.value.dotation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.consommation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.consommation')}}" ng-model="item.value.ressources.value.nourriture.value.consommation.value"></div></td>
+
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.consommation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.consommation')}}" ng-model="item.value.ressources.value.energie.value.consommation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.consommation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.consommation')}}" ng-model="item.value.ressources.value.materiau.value.consommation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.réserve')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.réserve')}}" ng-model="item.value.ressources.value.nourriture.value.reserve.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.réserve')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.réserve')}}" ng-model="item.value.ressources.value.energie.value.reserve.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.réserve')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.réserve')}}" ng-model="item.value.ressources.value.materiau.value.reserve.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.exportation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.exportation')}}" ng-model="item.value.ressources.value.nourriture.value.exportation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.exportation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.exportation')}}" ng-model="item.value.ressources.value.energie.value.exportation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.exportation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.exportation')}}" ng-model="item.value.ressources.value.materiau.value.exportation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.importation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.nourriture.importation')}}" ng-model="item.value.ressources.value.nourriture.value.importation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.importation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.énergie.importation')}}" ng-model="item.value.ressources.value.energie.value.importation.value"></div></td>
+                    <td><div ng-class="{editable:ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.importation')}" ng-attr-contenteditable="{{ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'ressources.matériau.importation')}}" ng-model="item.value.ressources.value.materiau.value.importation.value"></div></td>
+                    <td>{{ressourcesCommerce.GestionPaysService.calcul_exportations(item)}}</td>
+                    <td>{{ressourcesCommerce.GestionPaysService.calcul_importations(item)}}</td>
+                    <td>{{ressourcesCommerce.GestionPaysService.calcul_solde_commercial(item)}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <button class="sauvegarder" ng-show="ressourcesCommerce.ConnexionService.utilisateurPeutEditer({'Pays': '*'}, 'ressources')" ng-click="ressourcesCommerce.GestionPaysService.sauvegarder(ressourcesCommerce.paysUtilisateur, 'ressources', $event)"><i class="glyphicon glyphicon-refresh spinning"></i>Sauvegarder les données</button>
+</section>

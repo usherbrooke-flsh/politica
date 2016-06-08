@@ -1,0 +1,26 @@
+<footer ng-show="$root.isDebug">
+    <div class="container" style="margin-bottom:20px;">
+        <strong>Liste des utilisateurs enregistrés dans l'app:</strong>
+        <ul ng-repeat="utilisateur in debug.utilisateurs">
+            <li>{{utilisateur.username}} ({{utilisateur.profile.isAdmin | iif : 'Administrateur' : 'Utilisateur'}})</li>
+        </ul>
+    </div>
+    <div class="container" style="margin-bottom:20px;">
+        <strong>Liste des utilisateurs pouvant se connecter:</strong>
+        <ul ng-repeat="utilisateur in debug.utilisateurs_connectables">
+            <li>{{utilisateur.username}} ({{utilisateur.isAdmin | iif : 'Administrateur' : 'Utilisateur'}})</li>
+        </ul>
+    </div>
+    <div class="container" style="margin-bottom:20px;">
+        <strong>Liste des pays:</strong>
+        <ul ng-repeat="item in pays">
+            <li>{{item.id}}. {{item.nom}}</li>
+        </ul>
+    </div>
+    <div class="container" style="margin-bottom:20px;">
+        <strong>Liste des options:</strong>
+        <ul ng-repeat="item in debug.optionsjeu">
+            <li>Nom: {{item.nom}}, libelé: {{item.libele}}, valeur: {{item.valeur}}</li>
+        </ul>
+    </div>
+</footer>

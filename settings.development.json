@@ -3,24 +3,24 @@
     "MONGO_URL" : "mongodb://xxx:xxxx@troup.mongohq.com:10037/xxx"
   },
   "cas": {
-    "baseUrl": "https://cas.xxxx.com",
+    "baseUrl": "https://cas.usherbrooke.ca",
     "autoClose": true
   },
   "ldap": {
-    "url": "ldaps://ldap.xxxx.com:636",
-    "base": "",
+    "url": "ldaps://ldap.usherbrooke.ca:636",
+    "base": "ou=personnes,dc=usherbrooke,dc=ca",
     "timeout": 10000,
-    "bindDn": "",
-    "bindSecret": "",
+    "bindDn": "uid=prtu9002,ou=personnes,dc=usherbrooke,dc=ca",
+    "bindSecret": "NgZvpfv?",
     "filter": "(&(uid=%uid)(objectClass=inetOrgPerson))",
     "scope": "one",
     "nameAttribute": "cn",
     "mailAttribute": "mail",
     "forceUsername": true,
-    "allowNotFound": false,
+    "allowNotFound": true,
     "supportedServices": ["cas"],
     "group": {
-      "base": "",
+      "base": "ou=groupes,dc=usherbrooke,dc=ca",
       "filter": "(&(objectClass=groupOfNames)(member=%dn))",
       "scope": "one",
       "nameAttribute": "cn",
@@ -30,6 +30,9 @@
     }
   },
   "public": {
+    "persistent_session": {
+      "default_method": "persistent"
+    },
     "application" : {
       "permissions": {
         "utilisateur": {
@@ -153,7 +156,7 @@
       "isDebug": true
     },
     "cas": {
-      "loginUrl": "https://cas.xxxx.com/login",
+      "loginUrl": "https://cas.usherbrooke.ca/login",
       "serviceParam": "service",
       "popupWidth": 810,
       "popupHeight": 610

@@ -1,0 +1,30 @@
+<section class="couts-entretien">
+    <h1>Coût d'entretien</h1>
+    <hr/>
+    <div>
+        <form class="data fixe">
+            <table>
+                <thead>
+                <tr>
+                    <th class="pays"  fix-height>Pays</th>
+                    <th>Entretien (N)</th>
+                    <th>Entretien (É)</th>
+                    <th>Entretien (M)</th>
+                    <th>Entretien (G$)</th>
+                    <th class="cache">Total Entretien</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in coutsEntretien.paysUtilisateur">
+                    <td class="pays"  fix-height>{{coutsEntretien.GestionPaysService.afficher_nom(item.value.nom.value)}}</td>
+                    <td>{{coutsEntretien.GestionPaysService.calcul_cout_entretien_N(item)}}</td>
+                    <td>{{coutsEntretien.GestionPaysService.calcul_cout_entretien_E(item)}}</td>
+                    <td>{{coutsEntretien.GestionPaysService.calcul_cout_entretien_M(item)}}</td>
+                    <td>{{coutsEntretien.GestionPaysService.calcul_cout_entretien_G(item)}}</td>
+                    <td class="surbrillance cache">{{coutsEntretien.GestionPaysService.calcul_cout_entretien_total(item)}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</section>

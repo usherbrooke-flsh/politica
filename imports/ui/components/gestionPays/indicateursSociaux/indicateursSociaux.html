@@ -1,0 +1,37 @@
+<section class="indicateurs-sociaux">
+    <h1>Indicateurs sociaux</h1>
+    <hr/>
+    <div>
+        <form class="data fixe">
+            <table>
+                <thead>
+                <tr>
+                    <th class="pays" fix-height>Pays</th>
+                    <th>Régime politique</th>
+                    <th>Population</th>
+                    <th>IDH (0=mauvais; 1=excellent)</th>
+                    <th>Coefficient de Gini (0=égalité parfaite; 1=inégalité totale)</th>
+                    <th>Taux de chômage (%)</th>
+                    <th>Indice de perception de la corruption (0: intégrité; 10 : corruption)</th>
+                    <th>Indice de liberté civile (0: libre; 10: répression)</th>
+                    <th>Indice de stabilité politique</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in indicateursSociaux.paysUtilisateur">
+                    <td class="pays"  fix-height>{{indicateursSociaux.GestionPaysService.afficher_nom(item.value.nom.value)}}</td>
+                    <td><div ng-class="{editable:indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.regime_politique')}" ng-attr-contenteditable="{{indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.regime_politique')}}" ng-model="item.value.indicateurs_sociaux.value.regime_politique.value"></div></td>
+                    <td><div ng-class="{editable:indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.population')}" ng-attr-contenteditable="{{indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.population')}}" ng-model="item.value.indicateurs_sociaux.value.population.value"></div></td>
+                    <td><div ng-class="{editable:indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.idh')}" ng-attr-contenteditable="{{indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.idh')}}" ng-model="item.value.indicateurs_sociaux.value.idh.value"></div></td>
+                    <td><div ng-class="{editable:indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.gini')}" ng-attr-contenteditable="{{indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.gini')}}" ng-model="item.value.indicateurs_sociaux.value.gini.value"></div></td>
+                    <td><div ng-class="{editable:indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.taux_chomage')}" ng-attr-contenteditable="{{indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.taux_chomage')}}" ng-model="item.value.indicateurs_sociaux.value.taux_chomage.value"></div></td>
+                    <td><div ng-class="{editable:indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.perception_corruption')}" ng-attr-contenteditable="{{indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.perception_corruption')}}" ng-model="item.value.indicateurs_sociaux.value.perception_corruption.value"></div></td>
+                    <td><div ng-class="{editable:indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.liberte_civile')}" ng-attr-contenteditable="{{indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.liberte_civile')}}" ng-model="item.value.indicateurs_sociaux.value.liberte_civile.value"></div></td>
+                    <td class="surbrillance cache"><div ng-class="{editable:indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.indice_stabilite')}" ng-attr-contenteditable="{{indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': item.value.nom.value}, 'indicateurs_sociaux.indice_stabilite')}}" ng-model="item.value.indicateurs_sociaux.value.indice_stabilite.value"></div></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <button class="sauvegarder" ng-show="indicateursSociaux.ConnexionService.utilisateurPeutEditer({'Pays': '*'}, 'indicateurs_sociaux')" ng-click="donneesEconomiques.GestionPaysService.sauvegarder(indicateursSociaux.paysUtilisateur, 'indicateurs_sociaux', $event)"><i class="glyphicon glyphicon-refresh spinning"></i>Sauvegarder les données</button>
+</section>

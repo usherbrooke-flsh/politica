@@ -26,15 +26,27 @@ Utils = {
         },
 
 		unaccent: function(obj) {
-			var not_special, newObj;
+			var not_special, newObj, val;
 			if(typeof obj == 'object') {
 				newObj = {};
 				for(var k in obj) {
-					not_special = Utils.unaccent(k);
-					newObj[not_special] = {
-						value: (typeof obj[k] == 'object') ? Utils.unaccent(obj[k]) : obj[k],
-						key: k
-					};
+					if(k == '_id') {
+						newObj[k] = obj[k];
+					} else {
+						not_special = Utils.unaccent(k);
+						val = null;
+						if(typeof obj[k] == 'object') {
+							val = Utils.unaccent(obj[k]);
+						} else if(!isNaN(obj[k])) {
+							val = Number(obj[k]);
+						} else {
+							val  = obj[k];
+						}
+						newObj[not_special] = {
+							value: val,
+							key: k
+						};
+					}
 				}
 			} else {
 				newObj = obj;
@@ -42,6 +54,23 @@ Utils = {
 					newObj = newObj.replace(new RegExp('['+Utils.accents[i]+']', 'g'), i);
 					newObj = newObj.replace(new RegExp('['+Utils.accents[i].toUpperCase()+']', 'g'), i.toUpperCase());
 				}
+			}
+			return newObj;
+		},
+
+		unaccent_revert: function(obj) {
+			var newObj = {};
+			if(typeof obj == 'object') {
+				for(var k in obj) {
+					if(k == '_id') {
+						newObj[k] = obj[k];
+					} else {
+						newObj[obj[k].key] = Utils.unaccent_revert(obj[k].value);
+					}
+				}
+			} else {
+				//No can do
+				newObj = obj;
 			}
 			return newObj;
 		},

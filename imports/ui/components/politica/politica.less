@@ -113,6 +113,27 @@ strong {
   }
 }
 
+.glyphicon.spinning {
+  animation: spin 1s infinite linear;
+  -webkit-animation: spin2 1s infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+@-webkit-keyframes spin2 {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 .gestion {
   .barre-haut {
     .pays {
@@ -353,32 +374,72 @@ strong {
         background: @fondPale;
         margin: 10px 0;
         float: right;
+        outline: none;
+
+        -webkit-transition: all 100ms; /* Safari */
+        transition: all 100ms;
+
+        .glyphicon {
+          display: none;
+        }
       }
 
       button:hover {
         background: darken(@fondPale, 10%);
       }
+
+      button.updating:active,
+      button.updating:hover,
+      button.updating {
+        background: #fff6bf;
+        border-color: #ffd324;
+        color: #514721;
+        -webkit-transition: all 100ms; /* Safari */
+        transition: all 100ms;
+
+        .glyphicon {
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+
+      button.updated:active,
+      button.updated:hover,
+      button.updated {
+        background: #e6efc2;
+        border-color: #c6d880;
+        color: #264409;
+        -webkit-transition: all 500ms; /* Safari */
+        transition: all 500ms;
+      }
     }
   }
 
   .data.fixe {
-    overflow-y:visible;
-    overflow-x:scroll;
+    overflow-y: visible;
+    overflow-x: scroll;
     display: inline-block;
-    max-width: calc(~'100% - 8em');
+    max-width: 100%;
+
+    th:first-child, td:first-child {
+      display: none;
+    }
   }
 }
 
 .gestion.isadmin {
   .data.fixe {
-    margin-left:8em;
-    padding-bottom:1px;
+    margin-left: 8em;
+    padding-bottom: 1px;
+    max-width: calc(~'100% - 8em');
 
     th:first-child, td:first-child {
-      position:absolute;
-      width:10em;
-      left:0;
-      top:auto;
+      position: absolute;
+      width: 10em;
+      left: 0;
+      top: auto;
+      display: flex;
+      align-items: center;
     }
   }
 

@@ -1,0 +1,5 @@
+<div class="message">
+    <div ng-repeat="msg in $root.messages">
+        <div class="{{msg.type}}" ng-bind-html="msg.message | sanitize"></div>
+    </div>
+</div>
