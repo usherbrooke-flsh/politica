@@ -16,11 +16,12 @@ import template from './gestionPays.html';
 import paysTmpl from './pays.html';
 
 class GestionPays {
-    constructor($scope, $reactive, $state, $rootScope, $timeout, ConnexionService) {
+    constructor($scope, $reactive, $state, $rootScope, $timeout, ConnexionService, GestionPaysService) {
         'ngInject';
 
         this.$state = $state;
         this.ConnexionService = ConnexionService;
+        this.GestionPaysService = GestionPaysService;
 
         $reactive(this).attach($scope);
 
@@ -48,6 +49,24 @@ class GestionPays {
         //Pour éviter que $digest détecte un changement et un autre $direst dans la boucle.
         this.paysUtilisateur = ConnexionService.currentUser().profile.paysCourant.pays;
         this.nomPays = ConnexionService.currentUser().profile.paysCourant.nom;
+
+        this.rafraichir = (clickEvent) => {
+            var scope = this;
+            angular.element(clickEvent.currentTarget).removeClass('updated').addClass('updating');
+            $timeout(function() {
+                $scope.$apply(function() {
+                    scope.GestionPaysService.majPays(ConnexionService.currentUser().profile, ConnexionService.currentUser().profile.paysCourant.nom);
+
+                    scope.paysUtilisateur = ConnexionService.currentUser().profile.paysCourant.pays;
+
+                    angular.element(clickEvent.currentTarget).removeClass('updating').addClass('updated');
+                });
+
+                $timeout(function(){
+                    angular.element(clickEvent.currentTarget).removeClass('updated');
+                }, 2000);
+            }, 10);
+        }
 
         /**
          * Corriger la hauteur des entêtes des rangées

@@ -1,5 +1,5 @@
 <section class="cout-ressources">
-    <h1>Cours des ressources sur le marché (G$)</h1>
+    <h1>Coûts des ressources sur le marché (G$)</h1>
     <hr/>
     <div>
         <form class="data">
@@ -7,15 +7,15 @@
                 <tbody>
                 <tr>
                     <td class="pays" fix-height>Nourriture (N)</td>
-                    <td><div ng-class="{editable:coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_N')}" ng-attr-contenteditable="{{coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_N')}}" ng-model="coutRessources.opt.crn.valeur"></div></td>
+                    <td><div class="numeric" ng-class="{editable:coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_N')}" ng-attr-contenteditable="{{coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_N')}}" ng-model="coutRessources.opt.crn.valeur"></div></td>
                 </tr>
                 <tr>
                     <td class="pays" fix-height>Énergie (É)</td>
-                    <td><div ng-class="{editable:coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_É')}" ng-attr-contenteditable="{{coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_É')}}" ng-model="coutRessources.opt.cre.valeur"></div></td>
+                    <td><div class="numeric" ng-class="{editable:coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_É')}" ng-attr-contenteditable="{{coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_É')}}" ng-model="coutRessources.opt.cre.valeur"></div></td>
                 </tr>
                 <tr>
                     <td class="pays" fix-height>Matériau (M)</td>
-                    <td><div ng-class="{editable:coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_M')}" ng-attr-contenteditable="{{coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_M')}}" ng-model="coutRessources.opt.crm.valeur"></div></td>
+                    <td><div class="numeric" ng-class="{editable:coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_M')}" ng-attr-contenteditable="{{coutRessources.ConnexionService.utilisateurPeutEditer('OptionsJeu', 'coût_ressource_M')}}" ng-model="coutRessources.opt.crm.valeur"></div></td>
                 </tr>
                 </tbody>
             </table>

@@ -86,18 +86,26 @@ export default angular.module(name, [
                 };
 
                 //element.bind("blur keyup change", function() {
+                var oldval = element.html();
                 element.bind("blur change", function() {
-                    //scope.$digest(read);
-                    scope.$apply(read);
-                }).bind("keypress", function(e){
-                    if (e.which != 8 && e.which != 9 && e.which != 0 && e.which != 46 && (e.which < 48 || e.which > 57)) {
-                        if(e.which == 13) {
-                            element.change().blur();
-                        }
-                        e.preventDefault();
-                        return false;
+                    if(oldval != $(this).html()) {
+                        scope.$apply(read);
                     }
+                }).bind("focus", function() {
+                    oldval = $(this).html();
+                    $(this).selectText();
                 });
+                if(element.hasClass('numeric')) {
+                    element.bind("keypress", function (e) {
+                        if (e.which != 8 && e.which != 9 && e.which != 0 && e.which != 46 && (e.which < 48 || e.which > 57)) {
+                            if (e.which == 13) {
+                                element.change().blur();
+                            }
+                            e.preventDefault();
+                            return false;
+                        }
+                    });
+                }
             }
         };
     })

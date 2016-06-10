@@ -34,6 +34,10 @@
                 </div>
             </div>
 
+            <section class="refresh">
+                <button class="sauvegarder" ng-click="gestionPays.rafraichir($event)">Rafraîchir les données</button>
+            </section>
+
             <donnees-economiques pays-utilisateur="gestionPays.paysUtilisateur"></donnees-economiques>
             <cout-ressources pays-utilisateur="gestionPays.paysUtilisateur"></cout-ressources>
             <ressources-commerce pays-utilisateur="gestionPays.paysUtilisateur"></ressources-commerce>

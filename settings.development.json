@@ -71,19 +71,22 @@
                 "dotation": false,
                 "consommation": true,
                 "exportation": true,
-                "importation": true
+                "importation": true,
+                "réserve": true
               },
               "énergie": {
                 "dotation": false,
                 "consommation": true,
                 "exportation": true,
-                "importation": true
+                "importation": true,
+                "réserve": true
               },
               "matériau": {
                 "dotation": false,
                 "consommation": true,
                 "exportation": true,
-                "importation": true
+                "importation": true,
+                "réserve": true
               }
             }
           },
@@ -129,19 +132,22 @@
                 "dotation": true,
                 "consommation": true,
                 "exportation": true,
-                "importation": true
+                "importation": true,
+                "réserve": true
               },
               "énergie": {
                 "dotation": true,
                 "consommation": true,
                 "exportation": true,
-                "importation": true
+                "importation": true,
+                "réserve": true
               },
               "matériau": {
                 "dotation": true,
                 "consommation": true,
                 "exportation": true,
-                "importation": true
+                "importation": true,
+                "réserve": true
               }
             }
           },
