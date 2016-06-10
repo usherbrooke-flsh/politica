@@ -24,6 +24,6 @@ Packages used
 - session                       1.1.5  Session variable
 - spacebars                     1.0.11  Handlebars-like template language for Meteor
 - standard-minifier-css         1.0.6  Standard css minifier used with Meteor apps by default.
-- - standard-minifier-js          1.0.6  Standard javascript minifiers used with Meteor apps by default.
+- standard-minifier-js          1.0.6  Standard javascript minifiers used with Meteor apps by default.
 - tracker                       1.0.13  Dependency tracker to allow reactive callbacks
 - urigo:static-templates        0.0.2* Meteor plugin for importing static HTML templates
